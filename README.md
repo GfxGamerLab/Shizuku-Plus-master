@@ -39,16 +39,15 @@
 
 | Main Dashboard & Status | App Management | Shizuku Modules |
 | :---: | :---: | :---: |
-| ![Dashboard](screenshots/dashboard.jpg) | ![Apps](screenshots/apps.jpg) | ![Modules](screenshots/modules.jpg) |
+| ![Dashboard](screenshots/dashboard.jpg.jfif) | ![Apps](screenshots/apps.jpg.jfif) | ![Modules](screenshots/modules.jpg.jfif) |
 
 | Game Booster & Telemetry | Labs Toolkit | Settings & Branding |
 | :---: | :---: | :---: |
-| ![Game Booster](screenshots/gamebooster.jpg) | ![Labs](screenshots/labs.jpg) | ![Settings](screenshots/settings.jpg) |
+| ![Game Booster](screenshots/gamebooster.jpg.jfif) | ![Labs](screenshots/labs.jpg.jfif) | ![Settings](screenshots/settings.jpg.jfif) |
 
 | Wireless Debugging & Advanced Watchdog |
 | :---: |
-| ![Advanced Wireless Debugging](screenshots/wireless.jpg) |
-
+| ![Advanced Wireless Debugging](screenshots/wireless.jpg.jfif) |
 ---
 
 ## 📥 Installation & Setup
