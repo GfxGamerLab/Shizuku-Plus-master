@@ -37,9 +37,17 @@
 
 ## 📸 Screenshots Preview
 
-| Dashboard & Status | Wireless Debugging & Advanced | Gaming Mode & Toolkit |
-| --- | --- | --- |
-| *(Add screenshot)* | *(Add screenshot)* | *(Add screenshot)* |
+| Main Dashboard & Status | App Management | Shizuku Modules |
+| :---: | :---: | :---: |
+| ![Dashboard](screenshots/Screenshot_20261111_053641_Shizuku%20Plus.jpg) | ![Apps](screenshots/Screenshot_20261111_053653_Shizuku%20Plus.jpg) | ![Modules](screenshots/Screenshot_20261111_053712_Shizuku%20Plus.jpg) |
+
+| Game Booster & Telemetry | Labs Toolkit | Settings & Branding |
+| :---: | :---: | :---: |
+| ![Game Booster](screenshots/Screenshot_20261111_053727_Shizuku%20Plus.jpg) | ![Labs](screenshots/Screenshot_20261111_053738_Shizuku%20Plus.jpg) | ![Settings](screenshots/Screenshot_20261111_053748_Shizuku%20Plus.jpg) |
+
+| Wireless Debugging & Advanced Watchdog |
+| :---: |
+| ![Advanced Wireless Debugging](screenshots/Screenshot_20261111_053803_Shizuku%20Plus.jpg) |
 
 ---
 
