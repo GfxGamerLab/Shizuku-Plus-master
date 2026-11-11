@@ -1,0 +1,32 @@
+plugins {
+    id "idea"
+    id "com.android.library" apply false
+    id "org.jetbrains.kotlin.android" apply false
+}
+
+idea.module {
+    excludeDirs += file("out")
+}
+
+subprojects { subproject ->
+    plugins.withId("com.android.base") {
+        android {
+            compileSdk = 36
+            buildToolsVersion = "37.0.0"
+            ndkVersion = "29.0.14206865"
+            defaultConfig {
+                minSdk = 24
+                targetSdk = 36
+            }
+            compileOptions {
+                sourceCompatibility = JavaVersion.VERSION_21
+                targetCompatibility = JavaVersion.VERSION_21
+            }
+        }
+    }
+}
+
+ext {
+    versionCode = 1
+    versionName = "1.0.0"
+}

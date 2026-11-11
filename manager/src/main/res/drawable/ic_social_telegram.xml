@@ -1,0 +1,14 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="32dp"
+    android:height="32dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <!-- Telegram Blue Circle -->
+    <path
+        android:fillColor="#229ED9"
+        android:pathData="M12,2C6.48,2 2,6.48 2,12C2,17.52 6.48,22 12,22C17.52,22 22,17.52 22,12C22,6.48 17.52,2 12,2Z" />
+    <!-- White Paper Plane -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M9.78,18.65L10.06,14.67L17.3,8.14C17.61,7.86 17.23,7.71 16.82,7.95L7.88,13.58L3.99,12.37C3.15,12.11 3.14,11.53 4.18,11.12L19.38,5.26C20.08,5 20.7,5.43 20.47,6.39L17.88,18.59C17.69,19.45 17.18,19.66 16.46,19.26L12.51,16.35L10.6,18.19C10.39,18.4 10.22,18.58 9.78,18.65Z" />
+</vector>
