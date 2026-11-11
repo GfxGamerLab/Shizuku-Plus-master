@@ -1,0 +1,15 @@
+package com.gfxgamerlab.shizukuplus.start
+
+import org.junit.Assert.assertFalse
+import org.junit.Assert.assertTrue
+import org.junit.Test
+
+/** Wireless debugging is the one start method with an Android version floor. */
+class StartMethodGuardTest {
+
+    @Test
+    fun `wireless debugging starts at Android 11`() {
+        assertFalse(StartMethodGuard.supportsWirelessDebugging(29))
+        assertTrue(StartMethodGuard.supportsWirelessDebugging(30))
+    }
+}

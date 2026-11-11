@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="translation_url" translatable="false">https://crowdin.com/project/shizuku</string>
+    <string name="help_url" translatable="false">https://t.me/gfxgamerlab</string>
+    <string name="diagnostics_write_secure" translatable="false">WRITE_SECURE_SETTINGS</string>
+    <string name="automation_apps_url" translatable="false">https://t.me/gfxgamerlab</string>
+</resources>
