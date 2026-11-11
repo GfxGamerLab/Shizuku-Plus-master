@@ -1,138 +1,204 @@
-# Shizuku Plus (GFX Gamer Lab Edition)
+<div align="center">
+
+# ⚡ Shizuku Plus
+### GFX Gamer Lab Edition
+
+**Self-healing Shizuku. Zero-latency gaming tweaks. No root required.**
+
+[![Download](https://img.shields.io/badge/Download-Latest%20Release-d32f2f?style=for-the-badge&logo=android&logoColor=white)](https://github.com/GfxGamerLab/Shizuku-Plus-master/releases)
+[![Telegram](https://img.shields.io/badge/Telegram-Join%20Channel-229ED9?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/GfxGamerLab)
+[![YouTube](https://img.shields.io/badge/YouTube-GFX%20Gamer%20Lab-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://youtube.com/@GfxGamerLab)
+
+![Platform](https://img.shields.io/badge/Platform-Android-3DDC84?logo=android&logoColor=white)
+![Root](https://img.shields.io/badge/Root-Not%20Required-success)
+![License](https://img.shields.io/badge/License-Apache--2.0-blue)
+![Based on](https://img.shields.io/badge/Based%20on-Shizuku-7c4dff)
+
+</div>
+
+---
+
+## 📖 Table of Contents
+
+- [Overview](#-overview)
+- [Key Features](#-key-features)
+- [Screenshots](#-screenshots)
+- [Installation](#-installation)
+- [Developer Guide](#-developer-integration-guide)
+- [Community](#-community)
+- [License & Credits](#-license--credits)
 
 ---
 
 ## 🚀 Overview
 
-**Shizuku Plus (GFX Gamer Lab Edition)** is a high-performance, precision-engineered Android utility designed for mobile gamers, power users, and developers. Built on top of the open Shizuku ecosystem, it introduces self-healing neural watchdog mechanics, dynamic TCP tunneling, zero-latency gaming tweaks, and intelligent performance optimization—all wrapped in a sleek 3D glassmorphism dark-red UI.
+**Shizuku Plus (GFX Gamer Lab Edition)** is a high-performance Android utility built for mobile gamers, power users, and developers. It extends the open [Shizuku](https://github.com/rikkaapps/shizuku) ecosystem with:
+
+- 🛡️ a **self-healing watchdog** that keeps the Shizuku service alive,
+- 🔌 a **dynamic local TCP bridge** that survives Wireless Debugging port changes,
+- 🎮 a **gaming performance engine**, and
+- 🌐 a **smart DNS accelerator**
+
+— all in a dark-red 3D glassmorphism UI.
+
+> **No root needed.** Everything runs through Shizuku with shell (`uid 2000`) privileges over Wireless Debugging.
 
 ---
 
-## ✨ Key Features & Architecture
+## ✨ Key Features
 
-### 1. 🛡️ Auto-Heal Neural Watchdog & Zero-Click TCP Tunnel
+### 🛡️ Auto-Heal Neural Watchdog & Zero-Click TCP Tunnel
 
-* **Continuous Monitoring:** Periodically pings the Shizuku server binder state (`Shizuku.pingBinder()`).
-* **Self-Healing Recovery:** If network shifts (Wi-Fi drop or switching to mobile data) cause a disconnect, the background tunnel automatically re-binds local sockets within milliseconds **without requiring manual re-pairing**.
-* **Smart Exponential Backoff:** Prevents battery and CPU drain by implementing intelligent retry limits if the service terminates permanently.
+| Feature | What it does |
+| --- | --- |
+| **Continuous monitoring** | Periodically pings the Shizuku binder state via `Shizuku.pingBinder()`. |
+| **Self-healing recovery** | If Wi-Fi drops or you switch to mobile data, the tunnel re-binds local sockets within milliseconds — **no manual re-pairing**. |
+| **Smart exponential backoff** | Limits retries if the service terminates permanently, so battery and CPU aren't drained. |
 
-### 2. ⚡ Smart Local TCP Bridge
+### ⚡ Smart Local TCP Bridge
 
-* **Dynamic Port Scanning:** Automatically scans local loopback (`127.0.0.1`) ports when Android Wireless Debugging dynamically shifts ports (e.g., changing from `5555` to a randomized port).
-* **Seamless Re-binding:** Keeps active shell sessions alive without breaking your workflow or gaming session.
+| Feature | What it does |
+| --- | --- |
+| **Dynamic port scanning** | Scans loopback (`127.0.0.1`) when Wireless Debugging shifts ports (e.g. `5555` → a random port). |
+| **Seamless re-binding** | Keeps active shell sessions alive, so your game or workflow isn't interrupted. |
 
-### 3. 🎮 Advanced Gaming Mode & Performance Engine
+### 🎮 Advanced Gaming Mode & Performance Engine
 
-* **Performance Governor Locks:** Enforces high-frequency CPU/GPU preferences on demand.
-* **Smart Animation Scaling:** Automatically forces UI window/transition scales to **0.5x** during gaming for snappy navigation and explicitly restores **0.5x** upon exit to ensure device UI remains fast.
-* **Game Do Not Disturb (DND):** Suppresses floating notifications and pop-ups so competitive matches remain uninterrupted.
-* **Force GPU Rendering & 4x MSAA:** Sharpens textures and smooths out polygon edges globally.
-* **Thermal Guard & Temp Monitor:** Real-time battery/CPU temperature tracking with safety throttles to prevent device overheating.
+| Feature | What it does |
+| --- | --- |
+| **Performance governor locks** | Enforces high-frequency CPU/GPU preferences on demand. |
+| **Smart animation scaling** | Forces window/transition scales to **0.5x** while gaming and restores them on exit. |
+| **Game Do Not Disturb** | Suppresses floating notifications and pop-ups during matches. |
+| **Force GPU rendering & 4x MSAA** | Sharper textures and smoother polygon edges, globally. |
+| **Thermal guard & temp monitor** | Real-time battery/CPU temperature tracking with safety throttles. |
 
-### 4. 🌐 Smart DNS Accelerator
+### 🌐 Smart DNS Accelerator
 
-* Live-pings top gaming DNS providers (Cloudflare `1.1.1.1`, Google `8.8.8.8`, Quad9) to automatically route traffic through the lowest latency option.
+Live-pings top gaming DNS providers — **Cloudflare** `1.1.1.1`, **Google** `8.8.8.8`, **Quad9** — and routes traffic through the lowest-latency option.
 
 ---
 
-## 📸 Screenshots Preview
+## 📸 Screenshots
 
-| Main Dashboard & Status | App Management | Shizuku Modules |
-| :---: | :---: | :---: |
-| ![Dashboard](screenshots/dashboard.jpg.jfif) | ![Apps](screenshots/apps.jpg.jfif) | ![Modules](screenshots/modules.jpg.jfif) |
+<table>
+  <tr>
+    <td align="center"><b>Dashboard & Status</b></td>
+    <td align="center"><b>App Management</b></td>
+    <td align="center"><b>Shizuku Modules</b></td>
+  </tr>
+  <tr>
+    <td><img src="screenshots/dashboard.jpg.jfif" alt="Dashboard" width="260"></td>
+    <td><img src="screenshots/apps.jpg.jfif" alt="App Management" width="260"></td>
+    <td><img src="screenshots/modules.jpg.jfif" alt="Modules" width="260"></td>
+  </tr>
+  <tr>
+    <td align="center"><b>Game Booster & Telemetry</b></td>
+    <td align="center"><b>Labs Toolkit</b></td>
+    <td align="center"><b>Settings & Branding</b></td>
+  </tr>
+  <tr>
+    <td><img src="screenshots/gamebooster.jpg.jfif" alt="Game Booster" width="260"></td>
+    <td><img src="screenshots/labs.jpg.jfif" alt="Labs Toolkit" width="260"></td>
+    <td><img src="screenshots/settings.jpg.jfif" alt="Settings" width="260"></td>
+  </tr>
+  <tr>
+    <td align="center" colspan="3"><b>Wireless Debugging & Advanced Watchdog</b></td>
+  </tr>
+  <tr>
+    <td align="center" colspan="3"><img src="screenshots/wireless.jpg.jfif" alt="Wireless Debugging" width="260"></td>
+  </tr>
+</table>
 
-| Game Booster & Telemetry | Labs Toolkit | Settings & Branding |
-| :---: | :---: | :---: |
-| ![Game Booster](screenshots/gamebooster.jpg.jfif) | ![Labs](screenshots/labs.jpg.jfif) | ![Settings](screenshots/settings.jpg.jfif) |
-
-| Wireless Debugging & Advanced Watchdog |
-| :---: |
-| ![Advanced Wireless Debugging](screenshots/wireless.jpg.jfif) |
 ---
 
-## 📥 Installation & Setup
+## 📥 Installation
 
-1. **Install Shizuku:** Download and install the official [Shizuku App](https://shizuku.rikka.app).
-2. **Start Wireless Debugging:** Enable **Developer Options** and **Wireless Debugging** on your Android device. Pair Shizuku using a pairing code or wireless debugging notification.
-3. **Install Shizuku Plus:** Download the latest release APK from the Releases Page.
-4. **Configure Advanced Settings:** Open **`Settings > Wireless debugging`**, toggle on **Auto-Heal Neural Watchdog** or **Smart Local TCP Bridge** inside the Advanced box for absolute stability.
+1. **Install Shizuku** — get the official [Shizuku app](https://shizuku.rikka.app).
+2. **Enable Wireless Debugging** — turn on **Developer Options → Wireless Debugging**, then pair Shizuku using the pairing code or the notification.
+3. **Install Shizuku Plus** — download the latest APK from the [Releases page](https://github.com/GfxGamerLab/Shizuku-Plus-master/releases).
+4. **Turn on stability features** — go to **Settings → Wireless debugging → Advanced** and enable **Auto-Heal Neural Watchdog** and/or **Smart Local TCP Bridge**.
 
 ---
 
 ## 💻 Developer Integration Guide
 
-Want to build custom Shizuku-supported modules or integrate rootless shell execution into your own apps? Follow this engineering guide:
+Want to build Shizuku-powered modules or run rootless shell commands in your own app?
 
-### Step 1: Add Dependencies
-
-Add the official Shizuku API and provider dependencies to your app's `build.gradle.kts`:
+### Step 1 — Add dependencies
 
 ```kotlin
+// build.gradle.kts
 dependencies {
     implementation("dev.rikka.shizuku:api:13.1.5")
     implementation("dev.rikka.shizuku:provider:13.1.5")
 }
 ```
 
-### Step 2: Check & Request Permissions
+### Step 2 — Check & request permission
 
-Shizuku operations require runtime authorization. Check for permission before executing any privileged shell commands:
+Shizuku operations need runtime authorization. Always check before running privileged commands:
 
 ```kotlin
 import rikka.shizuku.Shizuku
 
 fun checkAndRequestShizukuPermission() {
-    if (Shizuku.isPreV11() || Shizuku.getVersion() < 11) {
-        return
-    }
+    if (Shizuku.isPreV11() || Shizuku.getVersion() < 11) return
 
-    if (Shizuku.checkSelfPermission() == android.content.pm.PackageManager.PERMISSION_GRANTED) {
-        // Permission already granted!
-    } else if (Shizuku.shouldShowRequestPermissionRationale()) {
-        // Explain to the user why permission is required
-    } else {
-        // Request permission
-        Shizuku.requestPermission(REQUEST_CODE_PERMISSION)
+    when {
+        Shizuku.checkSelfPermission() == PackageManager.PERMISSION_GRANTED -> {
+            // Permission already granted
+        }
+        Shizuku.shouldShowRequestPermissionRationale() -> {
+            // Explain to the user why permission is required
+        }
+        else -> Shizuku.requestPermission(REQUEST_CODE_PERMISSION)
     }
 }
 ```
 
-### Step 3: Execute Rootless Shell Processes
+### Step 3 — Run rootless shell commands
 
-Use `Shizuku.newProcess()` to execute commands with shell (`uid 2000`) privileges without needing root access:
+`Shizuku.newProcess()` runs commands with shell (`uid 2000`) privileges, no root:
 
 ```kotlin
 fun executeShellCommand(command: String): String {
-    try {
+    return try {
         val process = Shizuku.newProcess(arrayOf("sh", "-c", command), null, null)
         val output = process.inputStream.bufferedReader().use { it.readText() }
         process.waitFor()
-        return output
+        output
     } catch (e: Exception) {
         e.printStackTrace()
-        return "Error: ${e.message}"
+        "Error: ${e.message}"
     }
 }
 ```
 
-### Important Developer Best Practices:
+### ✅ Best practices
 
-* **Lifecycle Awareness:** Always listen to binder lifecycle listeners (`Shizuku.OnBinderReceivedListener` and `OnBinderDeadListener`) to handle service drops gracefully.
-* **Non-Blocking Threads:** Never execute shell commands on the main UI thread; always use Kotlin Coroutines (`Dispatchers.IO`).
-* **OEM Compatibility:** Wrap custom system commands in `try-catch` blocks to ensure silent failure on heavily customized OEM ROMs.
-
----
-
-## 🌐 Connect & Follow GFX Gamer Lab
-
-Stay updated with new tool releases, source drops, and gaming optimizations:
-
-* **YouTube:** [GFX Gamer Lab](https://www.google.com/search?q=https://youtube.com/%40GfxGamerLab)
-* **Telegram Community:** [Join our Channel](https://t.me/GfxGamerLab)
+- **Lifecycle awareness** — listen to `Shizuku.OnBinderReceivedListener` and `OnBinderDeadListener` to handle service drops gracefully.
+- **Stay off the main thread** — run shell commands with Kotlin Coroutines on `Dispatchers.IO`.
+- **OEM compatibility** — wrap custom system commands in `try/catch` so they fail silently on heavily customized ROMs.
 
 ---
 
-## 📜 License & Acknowledgments
+## 🌐 Community
 
-* Distributed under the **MIT License**.
-* Built on top of the open-source [Shizuku framework by RikkaApps](https://github.com/rikkaapps/shizuku) and inspired by community advancements.
+New tool releases, source drops, and gaming optimizations:
+
+- ▶️ **YouTube:** [GFX Gamer Lab](https://youtube.com/@GfxGamerLab)
+- 💬 **Telegram:** [Join our channel](https://t.me/GfxGamerLab)
+
+---
+
+## 📜 License & Credits
+
+- Developed and maintained by **Nisar Ahmad** under **GFX Gamer Lab**.
+- Distributed under the **Apache-2.0 License** — see [LICENSE](LICENSE).
+- Built on the open-source [Shizuku framework by RikkaApps](https://github.com/rikkaapps/shizuku) and inspired by community work.
+
+<div align="center">
+
+**⭐ If this helped you, star the repo!**
+
+</div>
