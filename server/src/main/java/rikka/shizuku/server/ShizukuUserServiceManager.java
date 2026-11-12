@@ -32,10 +32,13 @@ public class ShizukuUserServiceManager extends UserServiceManager {
         if (use32Bits && new File("/system/bin/app_process32").exists()) {
             appProcess = "/system/bin/app_process32";
         }
+        android.content.pm.ApplicationInfo managerInfo = ShizukuService.getManagerApplicationInfo();
+        String managerPackage = managerInfo != null ? managerInfo.packageName : ServerConstants.CUSTOM_MANAGER_ID;
+        String managerApk = managerInfo != null ? managerInfo.sourceDir : "";
         return ServiceStarter.commandForUserService(
                 appProcess,
-                ShizukuService.getManagerApplicationInfo().sourceDir,
-                ShizukuService.MANAGER_APPLICATION_ID,
+                managerApk,
+                managerPackage,
                 token, packageName, classname, processNameSuffix, callingUid, debug);
     }
 

@@ -1,7 +1,5 @@
 package rikka.shizuku.server;
 
-import static rikka.shizuku.server.ServerConstants.PERMISSION;
-
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.Build;
@@ -232,15 +230,21 @@ public class ShizukuConfigManager extends ConfigManager {
             for (PackageInfo pi : forUser) {
                 if (pi == null
                         || pi.applicationInfo == null
-                        || pi.requestedPermissions == null
-                        || !ArraysKt.contains(pi.requestedPermissions, PERMISSION)) {
+                        || pi.requestedPermissions == null) {
+                    continue;
+                }
+
+                boolean requestsPerm = ArraysKt.contains(pi.requestedPermissions, ServerConstants.PERMISSION)
+                        || ArraysKt.contains(pi.requestedPermissions, ServerConstants.PERMISSION_CUSTOM);
+                if (!requestsPerm) {
                     continue;
                 }
 
                 int uid = pi.applicationInfo.uid;
                 boolean allowed;
                 try {
-                    allowed = Android17Compat.checkPermission(PERMISSION, uid) == PackageManager.PERMISSION_GRANTED;
+                    allowed = Android17Compat.checkPermission(ServerConstants.PERMISSION, uid) == PackageManager.PERMISSION_GRANTED
+                            || Android17Compat.checkPermission(ServerConstants.PERMISSION_CUSTOM, uid) == PackageManager.PERMISSION_GRANTED;
                 } catch (Throwable e) {
                     LOGGER.w("checkPermission");
                     continue;
@@ -264,9 +268,17 @@ public class ShizukuConfigManager extends ConfigManager {
                         continue;
                     }
 
-                    if (!Android17Compat.grantRuntimePermission(pi.packageName, PERMISSION,
-                            UserHandleCompat.getUserId(uid))) {
-                        LOGGER.w("could not restore %s for %s", PERMISSION, pi.packageName);
+                    if (ArraysKt.contains(pi.requestedPermissions, ServerConstants.PERMISSION)) {
+                        if (!Android17Compat.grantRuntimePermission(pi.packageName, ServerConstants.PERMISSION,
+                                UserHandleCompat.getUserId(uid))) {
+                            LOGGER.w("could not restore %s for %s", ServerConstants.PERMISSION, pi.packageName);
+                        }
+                    }
+                    if (ArraysKt.contains(pi.requestedPermissions, ServerConstants.PERMISSION_CUSTOM)) {
+                        if (!Android17Compat.grantRuntimePermission(pi.packageName, ServerConstants.PERMISSION_CUSTOM,
+                                UserHandleCompat.getUserId(uid))) {
+                            LOGGER.w("could not restore %s for %s", ServerConstants.PERMISSION_CUSTOM, pi.packageName);
+                        }
                     }
                     continue;
                 }

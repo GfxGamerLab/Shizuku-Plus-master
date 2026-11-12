@@ -152,18 +152,24 @@ public class BinderSender {
             if (pi == null || pi.requestedPermissions == null)
                 continue;
 
-            if (ArraysKt.contains(pi.requestedPermissions, PERMISSION_MANAGER)) {
+            boolean isManagerApp = ArraysKt.contains(pi.requestedPermissions, PERMISSION_MANAGER)
+                    || ArraysKt.contains(pi.requestedPermissions, ServerConstants.PERMISSION_MANAGER_CUSTOM);
+
+            if (isManagerApp) {
                 boolean granted;
                 if (pid == -1)
-                    granted = Android17Compat.checkPermission(PERMISSION_MANAGER, uid) == PackageManager.PERMISSION_GRANTED;
+                    granted = Android17Compat.checkPermission(PERMISSION_MANAGER, uid) == PackageManager.PERMISSION_GRANTED
+                            || Android17Compat.checkPermission(ServerConstants.PERMISSION_MANAGER_CUSTOM, uid) == PackageManager.PERMISSION_GRANTED;
                 else
-                    granted = ActivityManagerApis.checkPermission(PERMISSION_MANAGER, pid, uid) == PackageManager.PERMISSION_GRANTED;
+                    granted = ActivityManagerApis.checkPermission(PERMISSION_MANAGER, pid, uid) == PackageManager.PERMISSION_GRANTED
+                            || ActivityManagerApis.checkPermission(ServerConstants.PERMISSION_MANAGER_CUSTOM, pid, uid) == PackageManager.PERMISSION_GRANTED;
 
                 if (granted) {
                     ShizukuService.sendBinderToManager(sShizukuService, userId);
                     return;
                 }
-            } else if (ArraysKt.contains(pi.requestedPermissions, PERMISSION)) {
+            } else if (ArraysKt.contains(pi.requestedPermissions, PERMISSION)
+                    || ArraysKt.contains(pi.requestedPermissions, ServerConstants.PERMISSION_CUSTOM)) {
                 ShizukuService.sendBinderToUserApp(sShizukuService, packageName, userId);
                 return;
             }

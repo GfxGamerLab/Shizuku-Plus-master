@@ -26,6 +26,29 @@ subprojects { subproject ->
     }
 }
 
+afterEvaluate {
+    def stubProject = subprojects.find { it.name == "stub" }
+    def shellProject = subprojects.find { it.name == "shell" }
+    if (stubProject != null && shellProject != null) {
+        shellProject.tasks.configureEach { shellTask ->
+            if (shellTask.name.contains("Release")) {
+                stubProject.tasks.configureEach { stubTask ->
+                    if (stubTask.name.contains("Release")) {
+                        shellTask.mustRunAfter(stubTask)
+                    }
+                }
+            }
+            if (shellTask.name.contains("Debug")) {
+                stubProject.tasks.configureEach { stubTask ->
+                    if (stubTask.name.contains("Debug")) {
+                        shellTask.mustRunAfter(stubTask)
+                    }
+                }
+            }
+        }
+    }
+}
+
 ext {
     versionCode = 1
     versionName = "1.0.0"

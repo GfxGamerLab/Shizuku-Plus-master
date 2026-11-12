@@ -8,6 +8,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.Build
 import java.io.File
+import com.gfxgamerlab.shizukuplus.ui.Detail
 import com.gfxgamerlab.shizukuplus.ui.component.PillButton
 import com.gfxgamerlab.shizukuplus.ui.component.ScrollToTopButton
 import com.gfxgamerlab.shizukuplus.ui.component.PillButtonQuiet
@@ -55,7 +56,7 @@ import androidx.compose.material.icons.rounded.Usb
 import androidx.compose.material.icons.rounded.ExpandMore
 import androidx.compose.material.icons.rounded.MoreHoriz
 import androidx.compose.material.icons.rounded.Wifi
-import androidx.compose.material.icons.outlined.PlayArrow
+import androidx.compose.material.icons.outlined.FolderOpen
 import androidx.compose.material.icons.automirrored.outlined.Send
 import androidx.compose.material.icons.automirrored.outlined.Chat
 import androidx.compose.material.icons.outlined.MusicNote
@@ -161,7 +162,7 @@ import rikka.shizuku.Shizuku
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun HomeScreen(bottomPadding: Dp) {
+fun HomeScreen(bottomPadding: Dp, onOpenDetail: (Detail) -> Unit) {
     val context = LocalContext.current
 
     var running by remember { mutableStateOf(ShizukuStateMachine.isRunning()) }
@@ -405,6 +406,21 @@ fun HomeScreen(bottomPadding: Dp) {
                 contentPadding = PaddingValues(start = 16.dp, top = 16.dp, end = 16.dp, bottom = bottomPadding),
                 verticalArrangement = Arrangement.spacedBy(13.dp)
             ) {
+                item {
+                    ExpressiveCard(
+                        icon = Icons.Outlined.FolderOpen,
+                        title = "GFX Data Explorer",
+                        body = "Access /Android/data and /obb without root or ZArchiver",
+                        onClick = { onOpenDetail(Detail.FILES) },
+                        trailing = {
+                            Icon(
+                                Icons.AutoMirrored.Filled.KeyboardArrowRight,
+                                contentDescription = null,
+                                tint = MaterialTheme.colorScheme.onSurfaceVariant
+                            )
+                        }
+                    )
+                }
             // A warning about where Android says Shizuku's permission lives, and nothing more:
             // every part of the app works with it wrong, but other apps look Shizuku up by that
             // permission, so finding out what they find is worth saying - once, and out of the way.

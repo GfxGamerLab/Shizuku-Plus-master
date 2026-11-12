@@ -608,7 +608,7 @@ private fun MainTabs(
                 // and loads when it is landed on.
                 val active = page == pagerState.settledPage
                 when (page) {
-                    0 -> HomeScreen(bottomPadding = bottomPadding)
+                    0 -> HomeScreen(bottomPadding = bottomPadding, onOpenDetail = onOpenDetail)
                     1 -> AppsScreen(
                         bottomPadding = bottomPadding,
                         active = active,
@@ -1034,7 +1034,7 @@ private fun TelevisionTabs(
             pages.SaveableStateProvider("$TAB_PAGES-$selected") {
                 CompositionLocalProvider(LocalTelevisionReturn provides returnFocus) {
                 when (selected) {
-                    0 -> HomeScreen(bottomPadding = 0.dp)
+                    0 -> HomeScreen(bottomPadding = 0.dp, onOpenDetail = onOpenDetail)
                     1 -> AppsScreen(
                         bottomPadding = 0.dp,
                         active = appsActive,
