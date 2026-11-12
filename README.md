@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="manager/src/main/res/drawable/gfx_gaming_banner.png" alt="Shizuku Plus - GFX Gamer Lab Edition Banner" width="100%">
+<img src="screenshots/banner.png" alt="GFX Gamer Lab - Shizuku Plus Banner" width="100%">
 
 # ⚡ Shizuku Plus — GFX Gamer Lab Edition
 
