@@ -73,7 +73,7 @@ private const val FOTA_ATTEMPT_INTERVAL_MS = 700L
 /** Written by the starter at the top of every run it records. */
 private const val STARTER_LOG_DIVIDER = "---- start ----"
 
-private const val STAGE_ACTION = "moe.shizuku.privileged.api.action.SYSTEM_START_STAGE"
+private const val STAGE_ACTION = "com.gfxgamerlab.shizukuplus.action.SYSTEM_START_STAGE"
 private const val STAGE_EXTRA = "stage"
 private const val STAGE_AT_SHELL = "payload_reached_the_shell"
 private const val STAGE_AFTER_STARTER = "the_starter_returned"

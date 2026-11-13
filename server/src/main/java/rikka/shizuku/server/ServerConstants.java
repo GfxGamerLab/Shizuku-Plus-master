@@ -4,16 +4,17 @@ public class ServerConstants {
 
     public static final int MANAGER_APP_NOT_FOUND = 50;
 
-    public static final String PERMISSION = "moe.shizuku.manager.permission.API_V23";
+    public static final String PERMISSION = "com.gfxgamerlab.shizukuplus.permission.API_V23";
     public static final String PERMISSION_CUSTOM = "com.gfxgamerlab.shizukuplus.permission.API_V23";
-    public static final String PERMISSION_MANAGER = "moe.shizuku.manager.permission.MANAGER";
+    public static final String PERMISSION_MANAGER = "com.gfxgamerlab.shizukuplus.permission.MANAGER";
     public static final String PERMISSION_MANAGER_CUSTOM = "com.gfxgamerlab.shizukuplus.permission.MANAGER";
 
-    public static final String OFFICIAL_MANAGER_ID = "moe.shizuku.privileged.api";
+    public static final String OFFICIAL_MANAGER_ID = "com.gfxgamerlab.shizukuplus";
     public static final String CUSTOM_MANAGER_ID = "com.gfxgamerlab.shizukuplus";
+    public static final String EXTRA_BINDER = "com.gfxgamerlab.shizukuplus.intent.extra.BINDER";
 
     public static boolean isManagerPackage(String packageName) {
-        return OFFICIAL_MANAGER_ID.equals(packageName) || CUSTOM_MANAGER_ID.equals(packageName);
+        return CUSTOM_MANAGER_ID.equals(packageName);
     }
 
     public static String getManagerApplicationId() {

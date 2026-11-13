@@ -84,26 +84,15 @@
         android:required="false" />
 
     <permission-group
-        android:name="moe.shizuku.manager.permission-group.API"
-        android:description="@string/permission_group_description"
-        android:icon="@drawable/ic_system_icon"
-        android:label="@string/permission_group_label" />
-
-    <permission-group
-        android:name="com.gfxgamerlab.shizukuplus.permission-group.API"
+        android:name="${applicationId}.permission-group.API"
         android:description="@string/permission_group_description"
         android:icon="@drawable/ic_system_icon"
         android:label="@string/permission_group_label" />
 
     <permission
-        android:name="moe.shizuku.manager.permission.MANAGER"
+        android:name="${applicationId}.permission.MANAGER"
         android:protectionLevel="signature" />
-    <uses-permission android:name="moe.shizuku.manager.permission.MANAGER" />
-
-    <permission
-        android:name="com.gfxgamerlab.shizukuplus.permission.MANAGER"
-        android:protectionLevel="signature" />
-    <uses-permission android:name="com.gfxgamerlab.shizukuplus.permission.MANAGER" />
+    <uses-permission android:name="${applicationId}.permission.MANAGER" />
 
     <!-- Android 11+ package visibility: without this the app cannot see other apps'
          launchers at all, so "does this app have a launcher entry" answered no for every
@@ -122,34 +111,18 @@
     </queries>
 
     <permission
-        android:name="moe.shizuku.manager.permission.API_V23"
+        android:name="${applicationId}.permission.API_V23"
         android:description="@string/permission_description"
         android:icon="@drawable/ic_system_icon"
         android:label="@string/permission_label"
-        android:permissionGroup="moe.shizuku.manager.permission-group.API"
+        android:permissionGroup="${applicationId}.permission-group.API"
         android:protectionLevel="dangerous" />
-
-    <permission
-        android:name="com.gfxgamerlab.shizukuplus.permission.API_V23"
-        android:description="@string/permission_description"
-        android:icon="@drawable/ic_system_icon"
-        android:label="@string/permission_label"
-        android:permissionGroup="com.gfxgamerlab.shizukuplus.permission-group.API"
-        android:protectionLevel="dangerous" />
-    <uses-permission
-        android:name="com.gfxgamerlab.shizukuplus.permission.API_V23"
-        tools:node="remove" />
 
     <queries>
-        <package android:name="moe.shizuku.privileged.api" />
-        <package android:name="com.gfxgamerlab.shizukuplus" />
+        <package android:name="${applicationId}" />
         <intent>
-            <action android:name="rikka.shizuku.intent.action.REQUEST_BINDER" />
+            <action android:name="${applicationId}.intent.action.REQUEST_BINDER" />
         </intent>
-        <intent>
-            <action android:name="moe.shizuku.privileged.api.intent.action.REQUEST_BINDER" />
-        </intent>
-        <provider android:authorities="moe.shizuku.privileged.api.shizuku" />
         <provider android:authorities="${applicationId}.shizuku" />
 
         <!-- Without this, Android 11+ hides every other app's accessibility service and the
@@ -188,6 +161,13 @@
         tools:ignore="GoogleAppIndexingWarning"
         tools:remove="android:appComponentFactory"
         tools:targetApi="33">
+
+        <meta-data
+            android:name="moe.shizuku.client.V3_SUPPORT"
+            android:value="true" />
+        <meta-data
+            android:name="com.gfxgamerlab.shizukuplus.client.V3_SUPPORT"
+            android:value="true" />
 
         <activity
             android:name=".MainActivity"
@@ -894,7 +874,7 @@
 
         <provider
             android:name=".ShizukuManagerProvider"
-            android:authorities="moe.shizuku.privileged.api.shizuku;com.gfxgamerlab.shizukuplus.shizuku;${applicationId}.shizuku"
+            android:authorities="${applicationId}.shizuku"
             android:directBootAware="true"
             android:enabled="true"
             android:exported="true"

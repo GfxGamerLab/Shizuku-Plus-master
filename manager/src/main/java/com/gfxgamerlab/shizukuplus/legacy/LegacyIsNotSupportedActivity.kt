@@ -5,6 +5,7 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.gfxgamerlab.shizukuplus.BuildConfig
 import com.gfxgamerlab.shizukuplus.MainActivity
 import com.gfxgamerlab.shizukuplus.R
 import com.gfxgamerlab.shizukuplus.app.AppActivity
@@ -49,7 +50,8 @@ class LegacyIsNotSupportedActivity : AppActivity() {
             ai.packageName
         }
 
-        val v3Support = ai.metaData?.getBoolean("moe.shizuku.client.V3_SUPPORT") == true
+        val v3Support = ai.metaData?.getBoolean("moe.shizuku.client.V3_SUPPORT") == true ||
+                ai.metaData?.getBoolean("${BuildConfig.APPLICATION_ID}.client.V3_SUPPORT") == true
         if (v3Support) {
             MaterialAlertDialogBuilder(this)
                     .setTitle(getString(R.string.dialog_requesting_legacy_title, label))

@@ -22,7 +22,7 @@ public class ServiceStarter {
 
     private static final String TAG = "ShizukuServiceStarter";
 
-    private static final String EXTRA_BINDER = "moe.shizuku.privileged.api.intent.extra.BINDER";
+    private static final String EXTRA_BINDER = "com.gfxgamerlab.shizukuplus.intent.extra.BINDER";
 
     /** How many times to look for the manager's provider before giving up on the start. */
     private static final int PROVIDER_ATTEMPTS = 5;
